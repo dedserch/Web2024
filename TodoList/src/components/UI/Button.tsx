@@ -3,7 +3,7 @@ import { Component, MouseEvent } from 'react';
 interface ButtonProps {
     name: string
     className?: string
-    onClick?: (e: MouseEvent<HTMLButtonElement>) => void
+    onClick: (e: MouseEvent<HTMLButtonElement>) => void
 }
 
 export default class Button extends Component<ButtonProps> {

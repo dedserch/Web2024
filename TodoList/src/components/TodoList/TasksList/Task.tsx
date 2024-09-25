@@ -3,7 +3,6 @@ import { ITask } from '../../../types/task.types'
 import CheckBox from '../../UI/CheckBox'
 import Button from '../../UI/Button'
 
-
 interface TaskProps {
     task: ITask
     toggleComplete: (id: number) => void
@@ -60,14 +59,16 @@ export class Task extends Component<TaskProps, TaskState> {
                 onMouseEnter={this.handleMouseEnter}
                 onMouseLeave={this.handleMouseLeave}
             >
-                <div className="flex items-center">
+                <div className="flex items-center w-full">
                     <CheckBox
                         isDone={task.isCompleted}
                         onChange={this.handleToggleComplete}
                     />
-                    <div className="ml-2">
-                        <p className="text-lg">{task.title}</p>
-                        <p className="text-gray-500 text-sm">{task.description}</p>
+                    <div className="ml-2 max-w-full break-words">
+                        <p className="text-lg font-semibold break-words max-w-xs">{task.title}</p>
+                        <p className="text-gray-500 text-sm break-words max-w-xs">
+                            {task.description}
+                        </p>
                     </div>
                 </div>
 
