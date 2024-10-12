@@ -10,27 +10,20 @@ interface TaskProps {
 }
 
 interface TaskState {
-    showDelete: boolean
+    isHovered: boolean
 }
 
 export class Task extends Component<TaskProps, TaskState> {
     state: TaskState = {
-        showDelete: false
-    }
-
-    shouldComponentUpdate(nextProps: TaskProps, nextState: TaskState) {
-        return (
-            nextProps.task !== this.props.task || 
-            nextState.showDelete !== this.state.showDelete
-        )
+        isHovered: false
     }
 
     handleMouseEnter = () => {
-        this.setState({ showDelete: true })
+        this.setState({ isHovered: true })
     }
 
     handleMouseLeave = () => {
-        this.setState({ showDelete: false })
+        this.setState({ isHovered: false })
     }
 
     handleDeleteClick = (e: MouseEvent<HTMLButtonElement>) => {
@@ -58,7 +51,7 @@ export class Task extends Component<TaskProps, TaskState> {
 
     render() {
         const { task } = this.props
-        const { showDelete } = this.state
+        const { isHovered } = this.state
 
         return (
             <div
@@ -81,15 +74,16 @@ export class Task extends Component<TaskProps, TaskState> {
                 </div>
 
                 <div className="flex items-center">
-                    <span className="text-gray-500 text-xs mr-4">
-                        {this.formatDate(task.createdAt)}
-                    </span>
-                    {showDelete && (
+                    {isHovered ? (
                         <Button
                             name="Удалить"
                             className="bg-red-500 text-white px-4 py-1 rounded"
                             onClick={this.handleDeleteClick}
                         />
+                    ) : (
+                        <span className="text-gray-500 text-xs mr-4">
+                            {this.formatDate(task.createdAt)}
+                        </span>
                     )}
                 </div>
             </div>

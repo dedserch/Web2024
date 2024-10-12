@@ -1,7 +1,7 @@
 import { Component, ChangeEvent } from 'react';
 
 interface CheckBoxProps {
-    isDone: boolean
+    isDone?: boolean
     onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 

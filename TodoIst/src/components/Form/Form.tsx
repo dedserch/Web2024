@@ -3,9 +3,10 @@ import { ERRORS } from '../../constants/errors.enum'
 import Input from '../ui/Input'
 import Button from '../ui/Button'
 import { SEVERITY } from '../../constants/severity.enun'
+import { ITaskForm } from '../../types/task.type'
 
 interface FormProps {
-  addTask: (title: string, description: string, severity: SEVERITY) => void
+  addTask: (data: ITaskForm) => void
 }
 
 interface FormState {
@@ -48,7 +49,7 @@ export default class Form extends Component<FormProps, FormState> {
       return
     }
 
-    this.props.addTask(title, description, severity)
+    this.props.addTask({ title, description, severity })
     this.setState({ title: '', description: '', severity: SEVERITY.AVERAGE, error: null })
   }
 
