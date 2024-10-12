@@ -1,12 +1,14 @@
-import { Component, ChangeEvent, FormEvent, MouseEvent } from 'react'
-import { ERRORS } from '../../constants/errors.enum'
-import Input from '../ui/Input'
-import Button from '../ui/Button'
-import { SEVERITY } from '../../constants/severity.enun'
-import { ITaskForm } from '../../types/task.type'
+import { Component, ChangeEvent, FormEvent, MouseEvent } from "react"
+import { ERRORS } from "../../constants/errors.enum"
+import Input from "../ui/Input"
+import Button from "../ui/Button"
+import { SEVERITY } from "../../constants/severity.enun"
+import { ITaskForm } from "../../types/task.type"
+import { TaskService } from "../../service/TaskService"
 
 interface FormProps {
   addTask: (data: ITaskForm) => void
+  addMultipleTasks: (tasks: ITaskForm[]) => void
 }
 
 interface FormState {
@@ -18,19 +20,24 @@ interface FormState {
 
 export default class Form extends Component<FormProps, FormState> {
   state: FormState = {
-    title: '',
-    description: '',
+    title: "",
+    description: "",
     severity: SEVERITY.AVERAGE,
-    error: null
+    error: null,
   }
 
   handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
-    const field = e.target.placeholder.includes('название') ? 'title' : 'description'
+    const field = e.target.placeholder.includes("название")
+      ? "title"
+      : "description"
     this.setState({ [field]: value } as Pick<FormState, keyof FormState>)
   }
 
-  handleSeverityChange = (e: MouseEvent<HTMLButtonElement>, severity: SEVERITY) => {
+  handleSeverityChange = (
+    e: MouseEvent<HTMLButtonElement>,
+    severity: SEVERITY
+  ) => {
     e.preventDefault()
     this.setState({ severity })
   }
@@ -39,18 +46,25 @@ export default class Form extends Component<FormProps, FormState> {
     e.preventDefault()
     const { title, description, severity } = this.state
 
-    if (title.trim() === '') {
+    if (title.trim() === "") {
       this.setState({ error: ERRORS.EMPTY_TITLE })
       return
     }
 
-    if (title.trim() !== title) {
-      this.setState({ error: ERRORS.INVALID_TITLE })
-      return
-    }
-
     this.props.addTask({ title, description, severity })
-    this.setState({ title: '', description: '', severity: SEVERITY.AVERAGE, error: null })
+    this.setState({
+      title: "",
+      description: "",
+      severity: SEVERITY.AVERAGE,
+      error: null,
+    })
+  }
+
+  handleAddMultipleTasks = () => {
+    const tasks = Array.from({ length: 100 }, () =>
+      TaskService.generateRandomTaskForm()
+    )
+    this.props.addMultipleTasks(tasks)
   }
 
   render() {
@@ -74,22 +88,45 @@ export default class Form extends Component<FormProps, FormState> {
         <div className="flex my-4">
           <Button
             name="Срочно"
-            className={`mr-2 ${severity === SEVERITY.URGENTLY ? 'bg-black text-white' : 'bg-gray-200'}`}
+            className={`mr-2 ${
+              severity === SEVERITY.URGENTLY
+                ? "bg-black text-white"
+                : "bg-gray-200"
+            }`}
             onClick={(e) => this.handleSeverityChange(e, SEVERITY.URGENTLY)}
           />
           <Button
             name="Средне"
-            className={`mr-2 ${severity === SEVERITY.AVERAGE ? 'bg-black text-white' : 'bg-gray-200'}`}
+            className={`mr-2 ${
+              severity === SEVERITY.AVERAGE
+                ? "bg-black text-white"
+                : "bg-gray-200"
+            }`}
             onClick={(e) => this.handleSeverityChange(e, SEVERITY.AVERAGE)}
           />
           <Button
             name="Не срочно"
-            className={`${severity === SEVERITY.NOT_URGENT ? 'bg-black text-white' : 'bg-gray-200'}`}
+            className={`${
+              severity === SEVERITY.NOT_URGENT
+                ? "bg-black text-white"
+                : "bg-gray-200"
+            }`}
             onClick={(e) => this.handleSeverityChange(e, SEVERITY.NOT_URGENT)}
           />
         </div>
 
-        <Button name="Добавить" className="bg-gray-400 text-white px-4 py-2" onClick={this.handleSubmit} />
+        <div className="flex space-x-4">
+          <Button
+            name="Добавить"
+            className="bg-gray-400 text-white px-4 py-2"
+            onClick={this.handleSubmit}
+          />
+          <Button
+            name="Добавить 100 задач"
+            className="bg-green-400 text-white px-4 py-2"
+            onClick={this.handleAddMultipleTasks}
+          />
+        </div>
       </form>
     )
   }
