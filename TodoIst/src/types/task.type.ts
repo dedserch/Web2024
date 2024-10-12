@@ -6,6 +6,7 @@ export interface ITask {
     description: string
     done: boolean
     severity: SEVERITY
+    createdAt: number
 }
 
 export interface ITaskForm {

@@ -4,10 +4,10 @@ import { ITask } from "../types/task.type"
 
 export class FilterService {
 
-  static hideCompleted = (tasks: ITask[], hideCompleted: boolean): ITask[] =>
+  public static hideCompleted = (tasks: ITask[], hideCompleted: boolean): ITask[] =>
     hideCompleted ? tasks.filter(task => !task.done) : tasks
 
-  static filterBySubstring = (tasks: ITask[], query: string): ITask[] => {
+  public static filterBySubstring = (tasks: ITask[], query: string): ITask[] => {
     const lowerQuery = query.trim().toLowerCase()
     return !lowerQuery
       ? tasks
@@ -17,7 +17,7 @@ export class FilterService {
         )
   }
 
-  static filterBySeverity = (tasks: ITask[], severities: SEVERITY[]): ITask[] =>
+  public static filterBySeverity = (tasks: ITask[], severities: SEVERITY[]): ITask[] =>
     severities.length === 0
       ? tasks
       : tasks.filter(task => severities.includes(task.severity))
