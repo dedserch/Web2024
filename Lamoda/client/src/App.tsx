@@ -1,5 +1,12 @@
+import { ProductList } from "./components/shared/ProductList/ProductList";
+import { Sortings } from "./components/shared/Sortings/Sortings";
+
 function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>
+  return (
+    <div>
+      <ProductList />
+    </div>
+  )
 }
 
 export default App;

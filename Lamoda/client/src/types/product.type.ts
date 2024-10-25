@@ -4,6 +4,7 @@ import { COLORS } from "../constants/colors.enum"
 export interface IProduct {
     id: string
     name: string
+    description: string
     color: COLORS
     category: CATEGORIES
     price: number
