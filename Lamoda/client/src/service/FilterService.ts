@@ -44,10 +44,12 @@ export class FilterService {
     }
   }
 
-  filterProducts(products: IProduct[]): IProduct[] {
-    return products.filter((product) =>
+  filterProducts(products: IProduct[], sorting: SORTINGS): IProduct[] {
+    const filteredProducts = products.filter((product) =>
       this.filters.every((filterFunc) => filterFunc(product))
     )
+
+    return this.applySorting(filteredProducts, sorting)
   }
 
   applySorting(products: IProduct[], sorting: SORTINGS): IProduct[] {

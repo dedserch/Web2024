@@ -1,51 +1,57 @@
-import React, { useState } from "react"
-import { CheckBox } from "../../ui/CheckBox"
-import { Input } from "../../ui/Input"
-import { COLORS } from "../../../constants/colors.enum"
+import React, { useState, useEffect } from "react";
+import { CheckBox } from "../../ui/CheckBox";
+import { Input } from "../../ui/Input";
+import { COLORS } from "../../../constants/colors.enum";
+import { useDebounce } from "../../../hooks/useDebounse";
+
 
 interface SidebarProps {
   onFilterChange: (filters: {
-    colors: COLORS[]
-    minPrice: number
-    maxPrice: number
-  }) => void
-  productCount: number
+    colors: COLORS[];
+    minPrice: number;
+    maxPrice: number;
+  }) => void;
+  productCount: number;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
   onFilterChange,
   productCount,
 }) => {
-  const [selectedColors, setSelectedColors] = useState<COLORS[]>([])
-  const [minPrice, setMinPrice] = useState<number | undefined>(undefined)
-  const [maxPrice, setMaxPrice] = useState<number | undefined>(undefined)
+  const [selectedColors, setSelectedColors] = useState<COLORS[]>([]);
+  const [minPrice, setMinPrice] = useState<number>(0);
+  const [maxPrice, setMaxPrice] = useState<number>(0);
+
+  const debouncedSelectedColors = useDebounce(selectedColors, 500);
+  const debouncedMinPrice = useDebounce(minPrice, 500);
+  const debouncedMaxPrice = useDebounce(maxPrice, 500);
 
   const handleColorChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     color: COLORS
   ) => {
     if (e.target.checked) {
-      setSelectedColors((prevColors) => [...prevColors, color])
+      setSelectedColors((prevColors) => [...prevColors, color]);
     } else {
-      setSelectedColors((prevColors) => prevColors.filter((c) => c !== color))
+      setSelectedColors((prevColors) => prevColors.filter((c) => c !== color));
     }
-  }
+  };
 
   const handleMinPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setMinPrice(Number(e.target.value))
-  }
+    setMinPrice(Number(e.target.value));
+  };
 
   const handleMaxPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setMaxPrice(Number(e.target.value))
-  }
+    setMaxPrice(Number(e.target.value));
+  };
 
-  React.useEffect(() => {
+  useEffect(() => {
     onFilterChange({
-      colors: selectedColors,
-      minPrice: minPrice || 0,
-      maxPrice: maxPrice || Number.MAX_VALUE,
-    })
-  }, [selectedColors, minPrice, maxPrice])
+      colors: debouncedSelectedColors,
+      minPrice: debouncedMinPrice || 0,
+      maxPrice: debouncedMaxPrice || Number.MAX_VALUE,
+    });
+  }, [debouncedSelectedColors, debouncedMinPrice, debouncedMaxPrice]);
 
   return (
     <div className="w-64 bg-white p-4 border-r">
@@ -78,5 +84,5 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <p className="text-gray-600">Всего продуктов: {productCount}</p>
       </div>
     </div>
-  )
-}
+  );
+};
