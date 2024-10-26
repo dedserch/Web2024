@@ -10,7 +10,7 @@ export const mockProducts: IProduct[] = [
     color: Colors.BLACK,
     category: Categories.FOOTWEAR,
     price: 350,
-    rating: 90,
+    rating: 5.0,
     imageUrl:
       "https://avatars.dzeninfra.ru/get-zen_doc/8269145/pub_641ec1d0798be415157b4180_641f3d1cd4b1f54fcf2f0a01/scale_1200",
   },
@@ -21,7 +21,7 @@ export const mockProducts: IProduct[] = [
     color: Colors.BLUE,
     category: Categories.DRESS,
     price: 200,
-    rating: 85,
+    rating: 1.5,
     imageUrl:
       "https://avatars.dzeninfra.ru/get-zen_doc/8269145/pub_641ec1d0798be415157b4180_641f3d1cd4b1f54fcf2f0a01/scale_1200",
   },
@@ -32,7 +32,7 @@ export const mockProducts: IProduct[] = [
     color: Colors.BROWN,
     category: Categories.JACKET,
     price: 150,
-    rating: 80,
+    rating: 2.5,
     imageUrl:
       "https://avatars.dzeninfra.ru/get-zen_doc/8269145/pub_641ec1d0798be415157b4180_641f3d1cd4b1f54fcf2f0a01/scale_1200",
   },
@@ -43,7 +43,7 @@ export const mockProducts: IProduct[] = [
     color: Colors.RED,
     category: Categories.FOOTWEAR,
     price: 110,
-    rating: 73,
+    rating: 3.0,
     imageUrl:
       "https://avatars.dzeninfra.ru/get-zen_doc/8269145/pub_641ec1d0798be415157b4180_641f3d1cd4b1f54fcf2f0a01/scale_1200",
   },
@@ -54,7 +54,7 @@ export const mockProducts: IProduct[] = [
     color: Colors.WHITE,
     category: Categories.SKIRT,
     price: 90,
-    rating: 75,
+    rating: 5.0,
     imageUrl:
       "https://avatars.dzeninfra.ru/get-zen_doc/8269145/pub_641ec1d0798be415157b4180_641f3d1cd4b1f54fcf2f0a01/scale_1200",
   },
@@ -65,7 +65,7 @@ export const mockProducts: IProduct[] = [
     color: Colors.BEIGE,
     category: Categories.FOOTWEAR,
     price: 80,
-    rating: 65,
+    rating: 4.0,
     imageUrl:
       "https://avatars.dzeninfra.ru/get-zen_doc/8269145/pub_641ec1d0798be415157b4180_641f3d1cd4b1f54fcf2f0a01/scale_1200",
   },
@@ -76,7 +76,7 @@ export const mockProducts: IProduct[] = [
     color: Colors.RED,
     category: Categories.JACKET,
     price: 120,
-    rating: 70,
+    rating: 5.0,
     imageUrl:
       "https://avatars.dzeninfra.ru/get-zen_doc/8269145/pub_641ec1d0798be415157b4180_641f3d1cd4b1f54fcf2f0a01/scale_1200",
   },
@@ -87,7 +87,7 @@ export const mockProducts: IProduct[] = [
     color: Colors.BLUE,
     category: Categories.FOOTWEAR,
     price: 50,
-    rating: 85,
+    rating: 1.0,
     imageUrl:
       "https://avatars.dzeninfra.ru/get-zen_doc/8269145/pub_641ec1d0798be415157b4180_641f3d1cd4b1f54fcf2f0a01/scale_1200",
   },
@@ -98,7 +98,7 @@ export const mockProducts: IProduct[] = [
     color: Colors.BLUE,
     category: Categories.FOOTWEAR,
     price: 300,
-    rating: 92,
+    rating: 2.2,
     imageUrl:
       "https://avatars.dzeninfra.ru/get-zen_doc/8269145/pub_641ec1d0798be415157b4180_641f3d1cd4b1f54fcf2f0a01/scale_1200",
   },
@@ -109,7 +109,7 @@ export const mockProducts: IProduct[] = [
     color: Colors.BLACK,
     category: Categories.COAT,
     price: 400,
-    rating: 88,
+    rating: 3.9,
     imageUrl:
       "https://avatars.dzeninfra.ru/get-zen_doc/8269145/pub_641ec1d0798be415157b4180_641f3d1cd4b1f54fcf2f0a01/scale_1200",
   },

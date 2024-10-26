@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useMemo, useCallback } from "react"
 import { ProductList } from "./components/shared/ProductList/ProductList"
 import { SortingsButton } from "./components/shared/Sortings/SortingsButton"
 import { Sidebar } from "./components/shared/Sidebar/Sidebar"
@@ -20,42 +20,44 @@ function App() {
   })
 
   const debouncedSearchValue = useDebounce(filters.searchValue, 500)
-  const filterService = new FilterService({
-    ...filters,
-    searchValue: debouncedSearchValue,
-  })
 
-  const handleSortChange = (sorting: Sortings) => {
+  const filterService = useMemo(
+    () => new FilterService({ ...filters, searchValue: debouncedSearchValue }),
+    [filters, debouncedSearchValue]
+  )
+
+  const handleSortChange = useCallback((sorting: Sortings) => {
     setFilters((prev) => ({
       ...prev,
       sorting,
     }))
-  }
+  }, [])
 
-  const handleFilterChange = (filterData: {
-    colors: Colors[]
-    minPrice: number
-    maxPrice: number
-  }) => {
-    setFilters((prev) => ({
-      ...prev,
-      colors: filterData.colors,
-      minPrice: filterData.minPrice,
-      maxPrice: filterData.maxPrice,
-    }))
-  }
-
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFilters((prev) => ({
-      ...prev,
-      searchValue: event.target.value,
-    }))
-  }
-
-  const filteredProducts = filterService.filterProducts(
-    mockProducts,
-    filters.sorting
+  const handleFilterChange = useCallback(
+    (filterData: { colors: Colors[]; minPrice: number; maxPrice: number }) => {
+      setFilters((prev) => ({
+        ...prev,
+        colors: filterData.colors,
+        minPrice: filterData.minPrice,
+        maxPrice: filterData.maxPrice,
+      }))
+    },
+    []
   )
+
+  const handleSearchChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setFilters((prev) => ({
+        ...prev,
+        searchValue: event.target.value,
+      }))
+    },
+    []
+  )
+
+  const filteredProducts = useMemo(() => {
+    return filterService.filterProducts(mockProducts, filters.sorting)
+  }, [filterService, filters.sorting, mockProducts])
 
   return (
     <div className="flex">
