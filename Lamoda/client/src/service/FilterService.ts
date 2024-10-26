@@ -1,0 +1,67 @@
+import { IProduct } from "../types/product.type"
+import { IProductFilters } from "../types/productFilters.type"
+import { SORTINGS } from "../constants/sortings.enum"
+
+type FilterFunction = (product: IProduct) => boolean
+
+export class FilterService {
+  private filters: FilterFunction[] = []
+
+  constructor(filtersConfig: IProductFilters) {
+    this.updateFilters(filtersConfig)
+  }
+
+  updateFilters(filtersConfig: IProductFilters) {
+    this.filters = []
+
+    if (filtersConfig.searchValue) {
+      this.filters.push(
+        (product) =>
+          product.name
+            .toLowerCase()
+            .includes(filtersConfig.searchValue.toLowerCase()) ||
+          product.description
+            .toLowerCase()
+            .includes(filtersConfig.searchValue.toLowerCase())
+      )
+    }
+
+    if (filtersConfig.colors.length) {
+      this.filters.push((product) =>
+        filtersConfig.colors.includes(product.color)
+      )
+    }
+
+    if (
+      filtersConfig.minPrice !== 0 ||
+      filtersConfig.maxPrice !== Number.MAX_VALUE
+    ) {
+      this.filters.push(
+        (product) =>
+          product.price >= filtersConfig.minPrice &&
+          product.price <= filtersConfig.maxPrice
+      )
+    }
+  }
+
+  filterProducts(products: IProduct[]): IProduct[] {
+    return products.filter((product) =>
+      this.filters.every((filterFunc) => filterFunc(product))
+    )
+  }
+
+  applySorting(products: IProduct[], sorting: SORTINGS): IProduct[] {
+    return products.slice().sort((a, b) => {
+      switch (sorting) {
+        case SORTINGS.FIRST_CHEAP:
+          return a.price - b.price
+        case SORTINGS.FIRST_EXPENSIVE:
+          return b.price - a.price
+        case SORTINGS.FIRST_POPULAR:
+          return b.rating - a.rating
+        default:
+          return 0
+      }
+    })
+  }
+}
