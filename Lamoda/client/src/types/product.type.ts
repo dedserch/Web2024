@@ -1,12 +1,12 @@
-import { CATEGORIES } from "../constants/categories.enum"
-import { COLORS } from "../constants/colors.enum"
+import { Categories } from "../constants/categories.enum"
+import { Colors } from "../constants/colors.enum"
 
 export interface IProduct {
     id: string
     name: string
     description: string
-    color: COLORS
-    category: CATEGORIES
+    color: Colors
+    category: Categories
     price: number
     rating: number
     imageUrl: string

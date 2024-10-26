@@ -1,6 +1,6 @@
 import { IProduct } from "../types/product.type"
 import { IProductFilters } from "../types/productFilters.type"
-import { SORTINGS } from "../constants/sortings.enum"
+import { Sortings } from "../constants/sortings.enum"
 
 type FilterFunction = (product: IProduct) => boolean
 
@@ -44,7 +44,7 @@ export class FilterService {
     }
   }
 
-  filterProducts(products: IProduct[], sorting: SORTINGS): IProduct[] {
+  filterProducts(products: IProduct[], sorting: Sortings): IProduct[] {
     const filteredProducts = products.filter((product) =>
       this.filters.every((filterFunc) => filterFunc(product))
     )
@@ -52,14 +52,14 @@ export class FilterService {
     return this.applySorting(filteredProducts, sorting)
   }
 
-  applySorting(products: IProduct[], sorting: SORTINGS): IProduct[] {
+  applySorting(products: IProduct[], sorting: Sortings): IProduct[] {
     return products.slice().sort((a, b) => {
       switch (sorting) {
-        case SORTINGS.FIRST_CHEAP:
+        case Sortings.FIRST_CHEAP:
           return a.price - b.price
-        case SORTINGS.FIRST_EXPENSIVE:
+        case Sortings.FIRST_EXPENSIVE:
           return b.price - a.price
-        case SORTINGS.FIRST_POPULAR:
+        case Sortings.FIRST_POPULAR:
           return b.rating - a.rating
         default:
           return 0

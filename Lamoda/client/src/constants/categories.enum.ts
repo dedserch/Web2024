@@ -1,4 +1,4 @@
-export enum CATEGORIES {
+export enum Categories {
     DRESS = "Dress",
     SKIRT = "Skirt",
     JACKET = "Jacket",

@@ -1,14 +1,14 @@
 import { IProduct } from "../types/product.type"
-import { COLORS } from "./colors.enum"
-import { CATEGORIES } from "./categories.enum"
+import { Colors } from "./colors.enum"
+import { Categories } from "./categories.enum"
 
 export const mockProducts: IProduct[] = [
   {
     id: "1",
     name: "Кеды",
     description: "Выполнены из натуральной кожи",
-    color: COLORS.BLACK,
-    category: CATEGORIES.FOOTWEAR,
+    color: Colors.BLACK,
+    category: Categories.FOOTWEAR,
     price: 350,
     rating: 90,
     imageUrl:
@@ -18,8 +18,8 @@ export const mockProducts: IProduct[] = [
     id: "2",
     name: "Платье",
     description: "Элегантное вечернее платье",
-    color: COLORS.BLUE,
-    category: CATEGORIES.DRESS,
+    color: Colors.BLUE,
+    category: Categories.DRESS,
     price: 200,
     rating: 85,
     imageUrl:
@@ -29,8 +29,8 @@ export const mockProducts: IProduct[] = [
     id: "3",
     name: "Куртка",
     description: "Теплая куртка для осени",
-    color: COLORS.BROWN,
-    category: CATEGORIES.JACKET,
+    color: Colors.BROWN,
+    category: Categories.JACKET,
     price: 150,
     rating: 80,
     imageUrl:
@@ -40,8 +40,8 @@ export const mockProducts: IProduct[] = [
     id: "4",
     name: "Кроссовки",
     description: "Для бега",
-    color: COLORS.RED,
-    category: CATEGORIES.FOOTWEAR,
+    color: Colors.RED,
+    category: Categories.FOOTWEAR,
     price: 110,
     rating: 73,
     imageUrl:
@@ -51,8 +51,8 @@ export const mockProducts: IProduct[] = [
     id: "5",
     name: "Юбка",
     description: "Красивая юбка для лета",
-    color: COLORS.WHITE,
-    category: CATEGORIES.SKIRT,
+    color: Colors.WHITE,
+    category: Categories.SKIRT,
     price: 90,
     rating: 75,
     imageUrl:
@@ -62,8 +62,8 @@ export const mockProducts: IProduct[] = [
     id: "6",
     name: "Сандалии",
     description: "Комфортные и лёгкие",
-    color: COLORS.BEIGE,
-    category: CATEGORIES.FOOTWEAR,
+    color: Colors.BEIGE,
+    category: Categories.FOOTWEAR,
     price: 80,
     rating: 65,
     imageUrl:
@@ -73,8 +73,8 @@ export const mockProducts: IProduct[] = [
     id: "7",
     name: "Блузка",
     description: "Легкая блузка для офиса",
-    color: COLORS.RED,
-    category: CATEGORIES.JACKET,
+    color: Colors.RED,
+    category: Categories.JACKET,
     price: 120,
     rating: 70,
     imageUrl:
@@ -84,8 +84,8 @@ export const mockProducts: IProduct[] = [
     id: "8",
     name: "Тапочки",
     description: "Мягкие тапочки для дома",
-    color: COLORS.BLUE,
-    category: CATEGORIES.FOOTWEAR,
+    color: Colors.BLUE,
+    category: Categories.FOOTWEAR,
     price: 50,
     rating: 85,
     imageUrl:
@@ -95,8 +95,8 @@ export const mockProducts: IProduct[] = [
     id: "9",
     name: "Сапоги",
     description: "Для зимы",
-    color: COLORS.BLUE,
-    category: CATEGORIES.FOOTWEAR,
+    color: Colors.BLUE,
+    category: Categories.FOOTWEAR,
     price: 300,
     rating: 92,
     imageUrl:
@@ -106,8 +106,8 @@ export const mockProducts: IProduct[] = [
     id: "10",
     name: "Пальто",
     description: "Стильное зимнее пальто",
-    color: COLORS.BLACK,
-    category: CATEGORIES.COAT,
+    color: Colors.BLACK,
+    category: Categories.COAT,
     price: 400,
     rating: 88,
     imageUrl:

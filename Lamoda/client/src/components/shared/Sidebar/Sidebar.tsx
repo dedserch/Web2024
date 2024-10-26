@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { CheckBox } from "../../ui/CheckBox";
 import { Input } from "../../ui/Input";
-import { COLORS } from "../../../constants/colors.enum";
+import { Colors } from "../../../constants/colors.enum";
 import { useDebounce } from "../../../hooks/useDebounse";
 
 
 interface SidebarProps {
   onFilterChange: (filters: {
-    colors: COLORS[];
+    colors: Colors[];
     minPrice: number;
     maxPrice: number;
   }) => void;
@@ -18,7 +18,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onFilterChange,
   productCount,
 }) => {
-  const [selectedColors, setSelectedColors] = useState<COLORS[]>([]);
+  const [selectedColors, setSelectedColors] = useState<Colors[]>([]);
   const [minPrice, setMinPrice] = useState<number>(0);
   const [maxPrice, setMaxPrice] = useState<number>(0);
 
@@ -28,7 +28,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
   const handleColorChange = (
     e: React.ChangeEvent<HTMLInputElement>,
-    color: COLORS
+    color: Colors
   ) => {
     if (e.target.checked) {
       setSelectedColors((prevColors) => [...prevColors, color]);
@@ -57,7 +57,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     <div className="w-64 bg-white p-4 border-r">
       <h3 className="text-lg font-semibold mb-2">По цвету</h3>
       <div className="mb-4">
-        {Object.values(COLORS).map((color) => (
+        {Object.values(Colors).map((color) => (
           <label key={color} className="flex items-center mb-1">
             <CheckBox onChange={(e) => handleColorChange(e, color)} />
             <span className="ml-2">{color}</span>

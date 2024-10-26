@@ -7,7 +7,7 @@ interface ProductProps {
 
 export const Product: React.FC<ProductProps> = ({ product }) => {
   return (
-    <div className="max-w-xs bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+    <div className="max-w-xs bg-gray-50  shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer">
       <div className="relative w-full h-48">
         <img
           className="w-full h-full object-cover object-center rounded-t-lg"
