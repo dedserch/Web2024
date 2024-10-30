@@ -7,8 +7,8 @@ export class AlbumService {
     return data
   }
 
-  public static async getByIdAlbum(id: number): Promise<IAlbum> {
-    const { data } = await instance.get(`/albums/${id}`)
-    return data
+  public static async getAllAlbumsByUser(userId: number): Promise<IAlbum[]> {
+    const { data } = await instance.get("/albums")
+    return data.filter((album: IAlbum) => album.userId === userId)
   }
 }
