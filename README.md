@@ -4,20 +4,23 @@
 
 ## 🌟 Project Overview
 
-The repository includes all lab work developed during the web programming course, providing examples of modern frontend development practices. Currently, this project contains three labs:
+The repository includes all lab work developed during the web programming course, providing examples of modern frontend development practices. Currently, this project contains four labs:
 
 - **Lamoda** 🛍️ — A lab focusing on e-commerce UI development.
 - **TodoList** 📝 — A basic to-do list application.
 - **TodoIst** 📋 — An advanced version of the to-do list with additional features.
+- **SpaApp** 🌍 — A Single Page Application (SPA) that demonstrates dynamic content loading and routing.
 
 As the course progresses, more lab assignments will be added to this repository, enhancing its utility as a learning resource and practical reference.
 
 ## 🛠️ Technologies Used
 
-- **React** ⚛️ — Library for building user interfaces
-- **TypeScript** 📝 — JavaScript with static typing
-- **Tailwind CSS** 🎨 — Utility-first CSS framework
-- **Redux** 🗂️ — State management library
+- **React** ⚛️ — Library for building user interfaces.
+- **TypeScript** 📝 — JavaScript with static typing.
+- **Tailwind CSS** 🎨 — Utility-first CSS framework.
+- **Redux** 🗂️ — State management library.
+- **React Router DOM** 🚦 — For routing and navigation.
+- **Axios** 🌐 — For making HTTP requests.
 
 ## 🚀 Getting Started
 
