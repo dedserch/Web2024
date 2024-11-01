@@ -7,8 +7,13 @@ export class PhotoService {
     return data
   }
 
-  public static async getByIdPhoto(id: number): Promise<IPhoto> {
+  public static async getByIdAlbumPhotos(id: number): Promise<IPhoto> {
     const { data } = await instance.get(`/photos/${id}`)
+    return data
+  }
+
+  public static async getAllPhotosByAlbum(albumId: number): Promise<IPhoto[]> {
+    const { data } = await instance.get(`/photos`, { params: { albumId } })
     return data
   }
 }

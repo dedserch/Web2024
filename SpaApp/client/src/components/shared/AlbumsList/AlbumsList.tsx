@@ -1,19 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { IAlbum } from '../../../types/album.type'
-import { AlbumService } from '../../../service/AlbumService'
 import { AlbumCard } from './AlbumCard'
 
 
-export const AlbumsList: React.FC = () => {
-  const [albums, setAlbums] = useState<IAlbum[]>([])
+interface AlbumsListProps {
+  albums: IAlbum[]
+}
 
-  useEffect(() => {
-    AlbumService.getAllAlbums().then(data => setAlbums(data))
-  }, [])
-
+export const AlbumsList: React.FC<AlbumsListProps> = ({ albums }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-      {albums.map(album => (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {albums.map((album) => (
         <AlbumCard key={album.id} album={album} />
       ))}
     </div>
