@@ -3,7 +3,7 @@ import { Layout } from "./components/Layout/Layout"
 import { Home } from "./pages/Home"
 import { NotFound } from "./pages/NotFound"
 import { Users } from "./pages/Users"
-import { Albums } from "./pages/Albums"
+import { User } from "./pages/User"
 
 export const router = createBrowserRouter([
   {
@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/users/:id/albums",
-        element: <Albums />
+        element: <User />
       }
     ],
   },
