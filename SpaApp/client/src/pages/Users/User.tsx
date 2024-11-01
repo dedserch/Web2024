@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { IAlbum } from "../types/album.type"
-import { IUser } from "../types/user.type"
-import { AlbumService } from "../service/AlbumService"
-import { UserService } from "../service/UserService"
-import { AlbumsList } from "../components/shared/AlbumsList/AlbumsList"
-import { Loading } from "../components/ui/Loading"
-import { UserCard } from "../components/shared/UsersList/UserCard"
-import { BackButton } from "../components/ui/BackButton"
+import { IAlbum } from "../../types/album.type"
+import { IUser } from "../../types/user.type"
+import { AlbumService } from "../../service/AlbumService"
+import { UserService } from "../../service/UserService"
+import { AlbumsList } from "../../components/shared/AlbumsList/AlbumsList"
+import { Loading } from "../../components/ui/Loading"
+import { UserCard } from "../../components/shared/UsersList/UserCard"
+import { BackButton } from "../../components/ui/BackButton"
 
 export const User: React.FC = () => {
   const { id } = useParams<{ id: string }>()

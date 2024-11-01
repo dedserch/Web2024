@@ -1,6 +1,6 @@
 import React from "react"
-import { UsersList } from "../components/shared/UsersList/UsersList"
-import { BackButton } from "../components/ui/BackButton"
+import { BackButton } from "../../components/ui/BackButton"
+import { UsersList } from "../../components/shared/UsersList/UsersList"
 
 export const Users: React.FC = () => {
   return (
