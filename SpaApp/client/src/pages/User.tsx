@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { IAlbum } from '../types/album.type'
-import { IUser } from '../types/user.type'
-import { AlbumService } from '../service/AlbumService'
-import { UserService } from '../service/UserService'
-import { AlbumsList } from '../components/shared/AlbumsList/AlbumsList'
-import { Loading } from '../components/ui/Loading'
-import { UserCard } from '../components/shared/UsersList/UserCard'
-
+import React, { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import { IAlbum } from "../types/album.type"
+import { IUser } from "../types/user.type"
+import { AlbumService } from "../service/AlbumService"
+import { UserService } from "../service/UserService"
+import { AlbumsList } from "../components/shared/AlbumsList/AlbumsList"
+import { Loading } from "../components/ui/Loading"
+import { UserCard } from "../components/shared/UsersList/UserCard"
+import { BackButton } from "../components/ui/BackButton"
 
 export const User: React.FC = () => {
   const { id } = useParams<{ id: string }>()
@@ -18,11 +18,11 @@ export const User: React.FC = () => {
   useEffect(() => {
     if (id) {
       setLoading(true)
-      AlbumService.getAllAlbumsByUser(Number(id)).then(data => {
+      AlbumService.getAllAlbumsByUser(Number(id)).then((data) => {
         setAlbums(data)
         setLoading(false)
       })
-      UserService.getByIdUsers(Number(id)).then(userData => {
+      UserService.getByIdUsers(Number(id)).then((userData) => {
         setUser(userData)
       })
     }
@@ -34,6 +34,7 @@ export const User: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4">
+      <BackButton />
       {user && (
         <div className="mb-4">
           <UserCard user={user} />
