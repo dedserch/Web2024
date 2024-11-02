@@ -6,6 +6,7 @@ import { IAlbum } from "../../types/album.type"
 import { UserService } from "../../service/UserService"
 import { PhotosList } from "../../components/shared/PhotosList/PhotosList"
 import { Loading } from "../../components/ui/Loading"
+import { Breadcrumbs } from "../../components/ui/Breadcrumbs"
 
 export const Album: React.FC = () => {
   const { albumId } = useParams<{ albumId: string }>()
@@ -32,6 +33,7 @@ export const Album: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4">
+      <Breadcrumbs />
       {album && user && (
         <>
           <h1 className="text-2xl font-bold mb-4">{album.title}</h1>
