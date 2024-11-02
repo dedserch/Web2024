@@ -8,25 +8,28 @@ import { AlbumsList } from "../../components/shared/AlbumsList/AlbumsList"
 import { Loading } from "../../components/ui/Loading"
 import { UserCard } from "../../components/shared/UsersList/UserCard"
 import { Breadcrumbs } from "../../components/ui/Breadcrumbs"
+import { useDebounce } from "../../hooks/useDebounse"
+
 
 export const User: React.FC = () => {
   const { id } = useParams<{ id: string }>()
+  const debouncedId = useDebounce(id, 500)
   const [albums, setAlbums] = useState<IAlbum[]>([])
   const [user, setUser] = useState<IUser | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    if (id) {
+    if (debouncedId) {
       setLoading(true)
-      AlbumService.getAllAlbumsByUser(Number(id)).then((data) => {
+      AlbumService.getAllAlbumsByUser(Number(debouncedId)).then((data) => {
         setAlbums(data)
         setLoading(false)
       })
-      UserService.getByIdUsers(Number(id)).then((userData) => {
+      UserService.getByIdUsers(Number(debouncedId)).then((userData) => {
         setUser(userData)
       })
     }
-  }, [id])
+  }, [debouncedId])
 
   if (loading) {
     return <Loading />
