@@ -9,7 +9,7 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({ photo }) => {
   return (
     <div className="p-4 border rounded-lg shadow-md bg-white hover:bg-gray-100 transition">
       <img
-        src={photo.imageUrl}
+        src={photo.url}
         alt={photo.title}
         className="w-full h-48 object-cover rounded"
       />
