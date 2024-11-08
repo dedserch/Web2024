@@ -5,9 +5,10 @@ export const Breadcrumbs: React.FC = () => {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const paths = location.pathname.split("/").filter(Boolean)
+  const paths = ["home", ...location.pathname.split("/").filter(Boolean)]
+
   const handleBreadcrumbClick = (index: number) => {
-    const path = `/${paths.slice(0, index + 1).join("/")}`
+    const path = index === 0 ? "/" : `/${paths.slice(1, index + 1).join("/")}`
     navigate(path)
   }
 
