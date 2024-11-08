@@ -9,7 +9,6 @@ import { Loading } from "../../components/ui/Loading"
 import { Breadcrumbs } from "../../components/ui/Breadcrumbs"
 import { useDebounce } from "../../hooks/useDebounse"
 
-
 export const Album: React.FC = () => {
   const { albumId } = useParams<{ albumId: string }>()
   const debouncedAlbumId = useDebounce(albumId, 500)

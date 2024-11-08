@@ -1,6 +1,6 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { IAlbum } from '../../../types/album.type'
+import React from "react"
+import { useNavigate } from "react-router-dom"
+import { IAlbum } from "../../../types/album.type"
 
 interface AlbumCardProps {
   album: IAlbum

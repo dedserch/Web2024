@@ -1,7 +1,6 @@
-import React from 'react'
-import { IAlbum } from '../../../types/album.type'
-import { AlbumCard } from './AlbumCard'
-
+import React from "react"
+import { IAlbum } from "../../../types/album.type"
+import { AlbumCard } from "./AlbumCard"
 
 interface AlbumsListProps {
   albums: IAlbum[]

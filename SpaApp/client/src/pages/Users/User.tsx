@@ -10,7 +10,6 @@ import { UserCard } from "../../components/shared/UsersList/UserCard"
 import { Breadcrumbs } from "../../components/ui/Breadcrumbs"
 import { useDebounce } from "../../hooks/useDebounse"
 
-
 export const User: React.FC = () => {
   const { id } = useParams<{ id: string }>()
   const debouncedId = useDebounce(id, 500)
