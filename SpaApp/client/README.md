@@ -61,10 +61,6 @@ To get started with the Api & Spa application, follow these steps:
 - Open your browser and go to `http://localhost:5173/` 🌐
 - Navigate through the user list, user details, albums, and album details seamlessly. 🗺️
 
-## Contributing 🤝
-
-We welcome contributions! If you'd like to help improve Api & Spa, please fork the repository and submit a pull request. 👥
-
 ---
 
 Thank you for checking out the Api & Spa project! Enjoy exploring the application! 🎉✨

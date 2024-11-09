@@ -85,10 +85,6 @@ To get started with the Lamoda application, follow these steps:
 - Open your browser and go to `http://localhost:5173/` 🌐
 - Browse products, apply filters, and sort them to find exactly what you need. 🛍️
 
-## Contributing 🤝
-
-We welcome contributions! If you'd like to help improve Lamoda, please fork the repository and submit a pull request. 👥
-
 ---
 
 Thank you for checking out the Lamoda project! Happy shopping! 🎉🛒✨

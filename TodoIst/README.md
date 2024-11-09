@@ -81,10 +81,6 @@ To get started with the TodoIst application, follow these steps:
 - Hover over a task to reveal the delete option. 🗑️
 - Use the filters to view tasks based on various criteria. 🔄
 
-## Contributing 🤝
-
-We welcome contributions! If you'd like to help improve the TodoIst, please fork the repository and submit a pull request. 👥
-
 ---
 
 Thank you for checking out the TodoIst project! Happy task managing! 🎉🗂️✨

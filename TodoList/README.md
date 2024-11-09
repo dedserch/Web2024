@@ -72,10 +72,6 @@ To get started with the TodoList application, follow these steps:
 - Hover over a task to reveal the delete option.
 - Use the filter to view only incomplete tasks.
 
-## Contributing 🤝
-
-We welcome contributions! If you'd like to help improve the TodoList, please fork the repository and submit a pull request.
-
 ---
 
 Thank you for checking out the TodoList project! Happy task managing! 🎉
