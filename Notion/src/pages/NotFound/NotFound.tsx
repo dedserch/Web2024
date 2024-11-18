@@ -1,5 +1,6 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
+import { Button } from "../../components/ui/Button"
 
 export const NotFound: React.FC = () => {
   return (
@@ -12,11 +13,8 @@ export const NotFound: React.FC = () => {
         <p className="text-lg text-gray-600">
           We’re sorry, but the page you requested could not be found.
         </p>
-        <NavLink
-          to="/"
-          className="inline-block mt-6 px-8 py-3 text-indigo-700 bg-indigo-100 rounded-md shadow-md hover:bg-indigo-200 hover:text-indigo-900 transition-all duration-200"
-        >
-          Back to Home
+        <NavLink to="/">
+          <Button name="Back to Home" />
         </NavLink>
       </div>
     </div>
