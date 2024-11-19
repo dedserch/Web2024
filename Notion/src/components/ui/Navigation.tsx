@@ -8,13 +8,13 @@ export const Navigation: React.FC = () => {
         to="/users"
         className="hover:text-gray-200 transition-colors duration-200 border-b-2 border-transparent hover:border-gray-200"
       >
-        Users
+        About
       </NavLink>
       <NavLink
         to="/albums"
         className="hover:text-gray-200 transition-colors duration-200 border-b-2 border-transparent hover:border-gray-200"
       >
-        Albums
+        Notes
       </NavLink>
     </nav>
   )
