@@ -46,7 +46,7 @@ To get started with the Api & Spa application, follow these steps:
 
 2. Navigate to the project directory:
    ```bash
-   cd .\SpaApp\client\
+   cd .\SpaApp\
 
 3. Install the dependencies:
    ```bash

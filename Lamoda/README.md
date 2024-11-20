@@ -70,7 +70,7 @@ To get started with the Lamoda application, follow these steps:
 
 2. Navigate to the project directory:
    ```bash
-   cd .\Lamoda\client\
+   cd .\Lamoda\
 
 3. Install the dependencies:
    ```bash
