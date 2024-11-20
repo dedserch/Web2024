@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "user1@gmail.com",
+      "password": "1234",
+      "createdAt": 1700313547023
+    }
+  ],
+  "notes": [
+    {
+      "id": 1,
+      "authorId": 1,
+      "title": "Первая заметка",
+      "body": "Тело первой заметки",
+      "createdAt": 1700313547024
+    }
+  ]
+}
