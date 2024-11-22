@@ -12,13 +12,13 @@ export const Navigation: React.FC = () => {
   return (
     <nav className="flex space-x-6 text-lg">
       <NavLink
-        to="/users"
+        to="/"
         className="hover:text-gray-200 transition-colors duration-200 border-b-2 border-transparent hover:border-gray-200"
       >
         About
       </NavLink>
       <NavLink
-        to="/albums"
+        to="/notes"
         className="hover:text-gray-200 transition-colors duration-200 border-b-2 border-transparent hover:border-gray-200"
       >
         Notes
