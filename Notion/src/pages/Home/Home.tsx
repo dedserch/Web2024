@@ -1,6 +1,11 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Button } from "../../components/ui/Button"
 
 export const Home: React.FC = () => {
-  return <Button name="test" />
+  return (
+    <div>
+      <h1>Hello</h1>
+      <Button name="test" />
+    </div>
+  )
 }
