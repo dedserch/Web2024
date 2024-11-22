@@ -2,7 +2,7 @@ export interface IUser {
     id: string
     email: string
     password: string
-    createdAt: number
+    createdAt: string
 }
 
 export type UserToAuth = Omit<IUser, "id" | "createdAt">

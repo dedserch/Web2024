@@ -4,7 +4,11 @@ import { IUser, UserToAuth } from "../types/user.types"
 
 export class UserService {
   static async create(user: UserToAuth): Promise<IUser> {
-    const response = await instance.post("/users", user)
+    const userWithTimestamp = {
+      ...user,
+      createdAt: new Date().toISOString()
+    }
+    const response = await instance.post("/users", userWithTimestamp)
     return response.data
   }
 
