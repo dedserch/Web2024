@@ -3,6 +3,8 @@ import { INote } from "../../../types/note.types"
 import { useNavigate } from "react-router-dom"
 import { NoteService } from "../../../services/NoteService"
 import { Button } from "../../ui/Button"
+import { formatDate } from "../../../helpers/formatDate"
+
 
 interface NoteCardProps {
   note: INote
@@ -13,12 +15,12 @@ export const NoteCard: React.FC<NoteCardProps> = ({ note, onDelete }) => {
   const navigate = useNavigate()
 
   const handleEdit = (event: React.MouseEvent) => {
-    event.stopPropagation() 
+    event.stopPropagation()
     navigate(`/notes/edit/${note.id}`)
   }
 
   const handleDelete = async (event: React.MouseEvent) => {
-    event.stopPropagation() 
+    event.stopPropagation()
     try {
       await NoteService.delete(note.id)
       onDelete(note.id)
@@ -31,16 +33,12 @@ export const NoteCard: React.FC<NoteCardProps> = ({ note, onDelete }) => {
     navigate(`/notes/${note.id}`)
   }
 
-  const formattedDate = new Date(note.createdAt).toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  })
+  const formattedDate = formatDate(note.createdAt)
 
   return (
     <div
       className="bg-white rounded-lg shadow-md p-4 flex justify-between items-center cursor-pointer hover:bg-gray-100 transition"
-      onClick={handleNavigateToNote} 
+      onClick={handleNavigateToNote}
     >
       <div>
         <h3 className="text-xl font-bold">{note.title}</h3>

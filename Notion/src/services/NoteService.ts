@@ -22,7 +22,11 @@ export class NoteService {
   }
 
   static async update(id: string, updatedNote: NoteToUpdate): Promise<INote> {
-    const response = await instance.put(`/notes/${id}`, updatedNote)
+    const noteWithTimestamp = {
+      ...updatedNote,
+      updatedAt: new Date().toISOString(),
+    }
+    const response = await instance.put(`/notes/${id}`, noteWithTimestamp)
     return response.data
   }
 

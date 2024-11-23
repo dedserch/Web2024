@@ -4,6 +4,11 @@ import { Button } from "../../ui/Button"
 import { AuthService } from "../../../services/AuthService"
 import { IAuthForm } from "../../../types/auth.types"
 import { UserContext, IUserContext } from "../../../Context/UserContextProvider"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+import { ValidationService } from "../../../services/ValidationService"
+import { ToastContainer } from "react-toastify"
+import { Validation } from "../../../types/validation.enum"
 
 export const AuthForm: React.FC = () => {
   const { onChange } = useContext(UserContext) as IUserContext
@@ -13,7 +18,6 @@ export const AuthForm: React.FC = () => {
     password: "",
     repeatPassword: "",
   })
-  const [error, setError] = useState<string | null>(null)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -30,37 +34,42 @@ export const AuthForm: React.FC = () => {
       password: "",
       repeatPassword: "",
     })
-    setError(null)
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (isSignUp) {
-      if (formValues.password !== formValues.repeatPassword) {
-        setError("Passwords do not match")
-        return
-      }
-      try {
-        const user = await AuthService.register({
-          email: formValues.email,
-          password: formValues.password,
-        })
+
+    const { email, password, repeatPassword } = formValues
+
+    if (!ValidationService.validateEmail(email)) {
+      toast.error(Validation.INVALID_EMAIL)
+      return
+    }
+
+    if (!ValidationService.validatePassword(password)) {
+      toast.error(Validation.INVALID_PASSWORD)
+      return
+    }
+
+    if (isSignUp && !ValidationService.validatePasswordMatch(password, repeatPassword)) {
+      toast.error(Validation.PASSWORDS_DO_NOT_MATCH)
+      return
+    }
+
+    try {
+      if (isSignUp) {
+        const user = await AuthService.register({ email, password })
         onChange(user)
+        toast.success(Validation.REGISTRATION_SUCCESS)
         window.location.href = "/"
-      } catch (err: any) {
-        setError(err.message || "Registration failed")
-      }
-    } else {
-      try {
-        const user = await AuthService.login({
-          email: formValues.email,
-          password: formValues.password,
-        })
+      } else {
+        const user = await AuthService.login({ email, password })
         onChange(user)
+        toast.success(Validation.LOGIN_SUCCESS)
         window.location.href = "/"
-      } catch (err: any) {
-        setError(err.message || "Invalid email or password")
       }
+    } catch (err: any) {
+      toast.error(err.message || (isSignUp ? Validation.REGISTRATION_FAILED : Validation.LOGIN_FAILED))
     }
   }
 
@@ -94,7 +103,6 @@ export const AuthForm: React.FC = () => {
               type="password"
             />
           )}
-          {error && <p className="text-red-500 text-center">{error}</p>}
           <div className="flex justify-center">
             <Button name={isSignUp ? "Sign Up" : "Sign In"} />
           </div>
@@ -108,6 +116,7 @@ export const AuthForm: React.FC = () => {
             : "Don't have an account? Sign up here"}
         </span>
       </div>
+      <ToastContainer />
     </div>
   )
 }

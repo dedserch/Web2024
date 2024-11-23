@@ -1,71 +1,33 @@
 {
   "users": [
     {
-      "id": "1",
-      "email": "user1@gmail.com",
-      "password": "1234",
-      "createdAt": "1700313547023"
-    },
-    {
-      "id": "2",
-      "email": "user2@gmail.com",
-      "password": "2222",
-      "createdAt": "1700313547023"
-    },
-    {
-      "id": "6175",
-      "email": "ded@gmail.ru",
-      "password": "1234",
-      "createdAt": "2024-11-22T17:08:46.336Z"
-    },
-    {
-      "id": "8424",
-      "email": "dedtest@mail.ru",
-      "password": "123456",
-      "createdAt": "2024-11-22T20:53:34.184Z"
+      "id": "c701",
+      "email": "testWeb2024@gmail.com",
+      "password": "123456Ddd",
+      "createdAt": "2024-11-23T01:10:25.563Z"
     }
   ],
   "notes": [
     {
-      "id": "4a9e",
-      "title": "Понял",
-      "body": "окей",
-      "authorId": 6175,
-      "createdAt": "2024-11-22T19:36:59.404Z"
-    },
-    {
-      "id": "72dc",
-      "title": "Ssssss",
+      "id": "f216",
+      "title": "check",
       "body": "",
-      "authorId": "6175",
-      "createdAt": "2024-11-22T19:46:53.865Z"
+      "authorId": "c701",
+      "createdAt": "2024-11-23T01:14:11.221Z"
     },
     {
-      "title": "asdasd",
-      "body": "ponnnnnn",
-      "authorId": "6175",
-      "id": "aa51"
+      "id": "813a",
+      "title": "check2",
+      "body": "",
+      "authorId": "c701",
+      "createdAt": "2024-11-23T01:14:16.739Z"
     },
     {
-      "id": "9725",
-      "title": "dsadasdasdadsa",
-      "body": "asdasdasda",
-      "authorId": "6175",
-      "createdAt": "2024-11-22T20:25:37.759Z"
-    },
-    {
-      "id": "a6ee",
-      "title": "dasdasdasdasdadsadas",
-      "body": "sssssssssssssssssssssssssss",
-      "authorId": "6175",
-      "createdAt": "2024-11-22T20:25:51.932Z"
-    },
-    {
-      "id": "c629",
-      "title": "Классная Заметка",
-      "body": "Поннннннннннннннн",
-      "authorId": "6175",
-      "createdAt": "2024-11-23T00:19:21.773Z"
+      "id": "afde",
+      "title": "help to make me lab",
+      "body": "",
+      "authorId": "c701",
+      "createdAt": "2024-11-23T01:14:27.658Z"
     }
   ]
 }
