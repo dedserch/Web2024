@@ -14,9 +14,15 @@
     },
     {
       "id": "6175",
-      "email": "dedvetal@mail.ru",
+      "email": "ded@gmail.ru",
       "password": "1234",
       "createdAt": "2024-11-22T17:08:46.336Z"
+    },
+    {
+      "id": "8424",
+      "email": "dedtest@mail.ru",
+      "password": "123456",
+      "createdAt": "2024-11-22T20:53:34.184Z"
     }
   ],
   "notes": [
@@ -53,6 +59,13 @@
       "body": "sssssssssssssssssssssssssss",
       "authorId": "6175",
       "createdAt": "2024-11-22T20:25:51.932Z"
+    },
+    {
+      "id": "c629",
+      "title": "Классная Заметка",
+      "body": "Поннннннннннннннн",
+      "authorId": "6175",
+      "createdAt": "2024-11-23T00:19:21.773Z"
     }
   ]
 }

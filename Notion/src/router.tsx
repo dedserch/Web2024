@@ -7,6 +7,7 @@ import { RequireAuth } from "./components/shared/RequireAuth/RequireAuth"
 import { Notes } from "./pages/Notes/Notes"
 import { NoteCreate } from "./pages/NoteCreate/NoteCreate"
 import { NoteEdit } from "./pages/NoteEdit/NoteEdit"
+import { Note } from "./pages/Note/Note"
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,14 @@ export const router = createBrowserRouter([
           </RequireAuth>
         ),
       },
+      {
+        path: "/notes/:noteId",
+        element: (
+          <RequireAuth>
+            <Note />
+          </RequireAuth>
+        )
+      }
       
     ],
   },
