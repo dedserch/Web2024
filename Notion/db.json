@@ -7,27 +7,5 @@
       "createdAt": "2024-11-23T01:10:25.563Z"
     }
   ],
-  "notes": [
-    {
-      "id": "f216",
-      "title": "check",
-      "body": "",
-      "authorId": "c701",
-      "createdAt": "2024-11-23T01:14:11.221Z"
-    },
-    {
-      "id": "813a",
-      "title": "check2",
-      "body": "",
-      "authorId": "c701",
-      "createdAt": "2024-11-23T01:14:16.739Z"
-    },
-    {
-      "id": "afde",
-      "title": "help to make me lab",
-      "body": "",
-      "authorId": "c701",
-      "createdAt": "2024-11-23T01:14:27.658Z"
-    }
-  ]
+  "notes": []
 }

@@ -5,6 +5,7 @@ import { NoteToCreate, NoteToUpdate } from "../../../types/note.types"
 import { Button } from "../../ui/Button"
 import { Input } from "../../ui/Input"
 import { TextArea } from "../../ui/TextArea"
+import { ValidationService } from "../../../services/ValidationService"
 
 interface NoteFormProps {
   isEdit: boolean
@@ -41,7 +42,7 @@ export const NoteForm: React.FC<NoteFormProps> = ({ isEdit, noteId }) => {
     const newErrors = { title: "", description: "" }
     let isValid = true
 
-    if (title.trim() === "") {
+    if (!ValidationService.validateTitle(title)) {
       newErrors.title = "Title is required"
       isValid = false
     }
@@ -57,7 +58,7 @@ export const NoteForm: React.FC<NoteFormProps> = ({ isEdit, noteId }) => {
     const noteData: NoteToCreate | NoteToUpdate = {
       title,
       body: description,
-      authorId: localStorage.getItem("userId") || "", 
+      authorId: localStorage.getItem("userId") || "",
     }
 
     try {
